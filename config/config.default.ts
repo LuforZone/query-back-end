@@ -10,17 +10,17 @@ export default (appInfo: EggAppInfo) => {
   // add your egg config in here
   config.middleware = [];
   config.mysql = {
-    
+
     client: {
       host: 'localhost',
       port: '3306',
       user: 'root',
-      password: 'Newd@wn@2022',
+      password: 'newdawn@2022',
       database: 'party_inter',
     },
     app: true,
     agent: false,
-  }
+  };
 
   // add your special config in here
   const bizConfig = {

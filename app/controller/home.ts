@@ -21,6 +21,7 @@ export default class HomeController extends Controller {
         age: userInfo.user.age,
         active: userActive,
       };/* infoOBJ + '\n' + uid; */
+      console.log(ctx.body);
     } catch (error) {
       console.error(error);
       ctx.body = { 'incorrect phone': 'there is no data connect to this phone number' }; // 'incorrect phone';

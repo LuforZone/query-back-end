@@ -8,7 +8,7 @@ export default class QueryService extends Service {
   }
   public async find2(phone) {
     const active = await (this.app as any).mysql.select('tickets', {
-      where:{phone:phone}
+      where: { phone: phone }
     });
     const ticketList: any = [];
     for (const i in active) {

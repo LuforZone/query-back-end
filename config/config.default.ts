@@ -21,14 +21,14 @@ export default (appInfo: EggAppInfo) => {
     app: true,
     agent: false,
   };
-  config.fuckCors = {}
+  config.fuckCors = {};
   // add your special config in here
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
 
   config.security = {
-    domainWhiteList: ['http://127.0.0.1:7001'], // 没有配置的话，错误信息：404
+    domainWhiteList: [ 'http://127.0.0.1:7001' ], // 没有配置的话，错误信息：404
     csrf: {
       enable: false, // 暂时禁用掉 csrf，错误信息：403 missing csrf token
     },

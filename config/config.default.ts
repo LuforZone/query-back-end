@@ -21,7 +21,7 @@ export default (appInfo: EggAppInfo) => {
       host: 'localhost',
       port: ports,
       user: 'root',
-      password: 'newdawn@2022',
+      password: passwords,
       database: 'party_inter',
     },
     app: true,

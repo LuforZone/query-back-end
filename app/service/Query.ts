@@ -2,11 +2,11 @@ import { Service } from 'egg';
 export default class QueryService extends Service {
 
 
-  public async find1(phone) {
+  public async find1(phone: any) {
     const user = await (this.app as any).mysql.get('users', { phone });
     return { user };
   }
-  public async find2(phone) {
+  public async find2(phone: any) {
     const active = await (this.app as any).mysql.select('tickets', {
       where: { phone },
     });

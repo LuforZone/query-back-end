@@ -13,19 +13,21 @@ export default class HomeController extends Controller {
     try {
       const phone: string = (ctx.params.phoneNumber as string).trim();
       const userInfo = await this.service.query.find1(Number(phone));
-      //const infoOBJ : string = 'name:' + userInfo.user.name + '  sex:' + userInfo.user.sex + '  age:' + userInfo.user.age;
+      // const infoOBJ : string = 'name:' + userInfo.user.name + '  sex:' + userInfo.user.sex + '  age:' + userInfo.user.age;
       const userActive = await this.service.query.find2(Number(phone));
-      //const uid = JSON.stringify(userActive);
+      // const uid = JSON.stringify(userActive);
 
+
+      ctx.set('Access-Control-Allow-Origin', '*');
       ctx.body = {
-        "name": userInfo.user.name,
-        "sex": userInfo.user.sex,
-        "age": userInfo.user.age,
-        "active": userActive
-      }/* infoOBJ + '\n' + uid; */
+        name: userInfo.user.name,
+        sex: userInfo.user.sex,
+        age: userInfo.user.age,
+        active: userActive,
+      };/* infoOBJ + '\n' + uid; */
     } catch (error) {
       console.error(error);
-      ctx.body = { "incorrect phone": "there is no data connect to this phone number" } //'incorrect phone';
+      ctx.body = { 'incorrect phone': 'there is no data connect to this phone number' }; // 'incorrect phone';
     }
 
 

@@ -1,4 +1,10 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
+import dotenv from 'dotenv';
+dotenv.config();
+
+
+const ports = (process.env.PORT || console.error('PORT is not defined')) as string;
+const passwords = (process.env.HOST || console.error('passwprd is not defined')) as string;
 
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>;
@@ -13,9 +19,9 @@ export default (appInfo: EggAppInfo) => {
   config.mysql = {
     client: {
       host: 'localhost',
-      port: '3306',
+      port: ports,
       user: 'root',
-      password: 'newdawn@2022',
+      password: passwords,
       database: 'party_inter',
     },
     app: true,

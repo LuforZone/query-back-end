@@ -8,8 +8,6 @@ export default class HomeController extends Controller {
   }
   public async request() {
     const ctx = this.ctx;
-
-
     try {
       const phone: string = (ctx.params.phoneNumber as string).trim();
       const userInfo = await this.service.query.find1(Number(phone));
@@ -17,8 +15,6 @@ export default class HomeController extends Controller {
       const userActive = await this.service.query.find2(Number(phone));
       // const uid = JSON.stringify(userActive);
 
-
-      ctx.set('Access-Control-Allow-Origin', '*');
       ctx.body = {
         name: userInfo.user.name,
         sex: userInfo.user.sex,
@@ -29,13 +25,10 @@ export default class HomeController extends Controller {
       console.error(error);
       ctx.body = { 'incorrect phone': 'there is no data connect to this phone number' }; // 'incorrect phone';
     }
-
-
-    // ctx.body=userInfo;
-
   }
   public async hello() {
     const { ctx } = this;
+    // console.log(this.app.plugins);
     ctx.body = 'hello world';
 
   }

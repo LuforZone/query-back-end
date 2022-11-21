@@ -8,9 +8,9 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1667200241510_1594';
 
   // add your egg config in here
-  config.middleware = [];
-  config.mysql = {
+  config.middleware = [ 'middlewareFuckCors' ];
 
+  config.mysql = {
     client: {
       host: 'localhost',
       port: '3306',
@@ -21,11 +21,26 @@ export default (appInfo: EggAppInfo) => {
     app: true,
     agent: false,
   };
-
+  config.fuckCors = {}
   // add your special config in here
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
+
+  config.security = {
+    domainWhiteList: ['http://127.0.0.1:7001'], // 没有配置的话，错误信息：404
+    csrf: {
+      enable: false, // 暂时禁用掉 csrf，错误信息：403 missing csrf token
+    },
+  };
+
+
+  // config.cors = {
+  //   credentials: true,
+  //   origin: ctx => ctx.get('origin'),
+  //   // origin: '*',
+  //   allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+  // };
 
   // the return config will combines to EggAppConfig
   return {

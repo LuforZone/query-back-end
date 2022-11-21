@@ -1,4 +1,4 @@
-const fuckCors = async (ctx: { set: (arg0: string, arg1: string) => void; }, next: () => any) => {
+const fuckCors = async (ctx : any, next: () => any) => {
   await next();
   // allow header get,postm,put,delete,patch,head,options
   ctx.set('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
